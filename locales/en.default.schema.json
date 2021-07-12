@@ -1568,6 +1568,14 @@
       "presets": {
         "name": "Rich text"
       }
+    },
+    "main-collection-tab": {
+      "name": "Collection Group",
+      "settings": {},
+      "blocks": {},
+      "presets": {
+        "name": "Collection Group"
+      }
     }
   }
 }

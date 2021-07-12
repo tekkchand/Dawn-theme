@@ -1,0 +1,49 @@
+<link rel="preload" href="{{ 'collection-tabs.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<collection-tabs>
+  <div class="page-width" id="collection-tab" data-id="{{ section.id }}">
+    <nav role='navigation' class="transformer-tabs">
+      <ul>
+        {% for block in section.blocks %}
+          {%- if block.type == 'collection' -%}
+            <li><a {% if forloop.index==1 %} class="collection-tab active" {% else %} class="collection-tab" {% endif %} data-handle="{{block.settings.collection}}">{{block.settings.collection | capitalize }}</a></li>
+          {%- endif -%}
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</collection-tabs>
+
+<script src="{{ 'collection-tab.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "t:sections.main-collection-tab.name",
+  "tag": "section",
+  "settings": [ ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": {
+        "en": "Collection"
+      },
+      "settings": [
+        {
+          "label": {
+            "en": "Collection"
+          },
+          "id": "collection",
+          "type": "collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.main-collection-tab.presets.name",
+      "settings": {
+      }
+    }
+  ]
+}
+{% endschema %}
